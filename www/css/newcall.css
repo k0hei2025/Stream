@@ -1,0 +1,56 @@
+@media (max-width: 640px) {
+  .section:first-of-type {
+    min-height: 0;
+  }
+
+  section:first-of-type .hero-inner {
+    padding-top: 1rem;
+    padding-bottom: 0;
+  }
+
+  section:first-of-type .hero-inner .split-item {
+    padding: 0;
+  }
+
+  .yellowblock{
+    background: #FDD380;
+  }
+
+  section:nth-of-type(2) {
+    margin-top: 2rem;
+  }
+
+  section:nth-of-type(2) .section-inner {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  section:nth-of-type(2) .section-inner .cta-slogan {
+    margin-bottom: 1rem;
+  }
+}
+
+input[type="text"]:disabled{background-color:#f2f2f2;}
+
+.btmbox{
+  margin-top: 20px;
+}
+
+#meetlink{
+  font-size: 16px;
+  color: blue;
+}
+
+#date, #time{
+  margin-bottom: 10px;
+}
+
+@media(max-width: 500px){
+  #meetlink{
+    font-size: 12px;
+  }
+}
+
+.hide{
+  display: none;
+}
