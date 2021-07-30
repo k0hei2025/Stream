@@ -718,7 +718,7 @@ function initPeer() {
         const remoteHandStatusIcon = document.createElement("button");
         const remoteVideoStatusIcon = document.createElement("button");
         const remoteAudioStatusIcon = document.createElement("button");
-        const remotePeerKickOut = document.createElement("button");
+      
         const remoteVideoFullScreenBtn = document.createElement("button");
         const remoteVideoAvatarImage = document.createElement("img");
 
@@ -758,11 +758,7 @@ function initPeer() {
           content: "Participant audio is ON",
         });
         // remote peer kick out
-        remotePeerKickOut.setAttribute("id", peer_id + "_kickOut");
-        remotePeerKickOut.className = "fas fa-sign-out-alt";
-        tippy(remotePeerKickOut, {
-          content: "Kick out",
-        });
+     
         // remote video full screen mode
         remoteVideoFullScreenBtn.setAttribute("id", peer_id + "_fullScreen");
         remoteVideoFullScreenBtn.className = "fas fa-expand";
@@ -779,7 +775,7 @@ function initPeer() {
         remoteStatusMenu.appendChild(remoteHandStatusIcon);
         remoteStatusMenu.appendChild(remoteVideoStatusIcon);
         remoteStatusMenu.appendChild(remoteAudioStatusIcon);
-        remoteStatusMenu.appendChild(remotePeerKickOut);
+   
         remoteStatusMenu.appendChild(remoteVideoFullScreenBtn);
 
         // add elements to videoWrap div

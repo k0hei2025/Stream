@@ -16,6 +16,14 @@ body {
 		margin-top: 20px;
 }
 
+.error {
+  visibility: hidden;
+ 
+}
+.checker  {
+  visibility: hidden;
+}
+
 h1 {
     font-weight: bold;
     margin: 0;
@@ -169,6 +177,28 @@ button.ghost {
     transition: transform .6s ease-in-out;
 }
 
+@media only screen and (max-width:400px)
+{
+
+  .createAccount { 
+   font-size:1.5rem
+  }
+
+   .form-container form{
+     padding: 0px 15px ;
+   }
+
+   .signInHead { 
+     font-size : 1.5rem 
+   }
+  button { 
+     padding: 12px 10px;
+  }
+
+ .overlay-panel h1{
+   font-size: 1.5rem;
+ }
+}
 .overlay-right {
     right: 0;
     transform: translateY(0);

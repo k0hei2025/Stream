@@ -7,6 +7,9 @@ const signupPassword = document.querySelector('.signup-password');
 const signupConfirmPassword = document.querySelector('.signup-passwordConfirm');
 const signupButton = document.getElementById('signup-button');
 
+let error = document.getElementById('err');
+let checkError = document.getElementById('check')
+
 const signinEmail = document.querySelector('.signin-email')
 const signinPassword = document.querySelector('.signin-password')
 const signinButton = document.getElementById('signin-button')
@@ -25,7 +28,13 @@ signupButton.addEventListener('click', async() =>{
 console.log(signupEmail.value , signupPassword.value )
 
 
-   if (signupPassword.value === signupConfirmPassword.value && signupPassword.value.length > 8){ const data =  await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCgvbOnkBU7Jkvmb9MCguSTIxpM8sNY7Dw
+   if (signupPassword.value === signupConfirmPassword.value && signupPassword.value.length > 8){ 
+     
+    checkError.classList.remove('checker');
+    checkError.style.color='green'
+    
+    
+    const data =  await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCgvbOnkBU7Jkvmb9MCguSTIxpM8sNY7Dw
 
 `,{
    method : 'POST',
@@ -43,6 +52,8 @@ console.log(signupEmail.value , signupPassword.value )
 
 const resData = data.json();
 console.log(resData);
+
+
  
 console.log(signupEmail.value , signupPassword.value )
 }
@@ -70,10 +81,29 @@ signinButton.addEventListener('click',async()=>{
    }
 
 
+
    })
-   const resData = await data.json();
-  
-   location.replace('/newcall')  
+
  
-   console.log('success ', resData)
+
+   const resData = await data.json();
+    
+   console.log(resData.error);
+   console.log(resData.idToken);
+ 
+  if (resData.idToken){
+     location.replace('/newcall')  
+  }
+
+    if (resData.error  ){
+       error.classList.remove("error")
+
+      error.style.color = 'red'
+      console.log(resData.error.message)
+     
+    }
+    
+      
+ 
+
 })
