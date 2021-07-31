@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+.host {
+  margin-bottom: 1rem;
+}
+
 article,
 aside,
 footer,
@@ -3188,6 +3192,7 @@ img.has-shadow {
 
 .mb-24 {
   margin-bottom: 24px;
+  
 }
 
 .ml-24 {

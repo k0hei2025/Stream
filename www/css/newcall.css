@@ -1,3 +1,43 @@
+
+
+  .check { 
+    visibility:hidden;
+  }
+
+  .btn1 {
+    margin-right: .5rem;
+  border-radius: .5rem;
+  
+  font-family: 'Avenir Next';
+  
+  
+  color: color-black;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 1px transparent;
+  background-image: linear-gradient(rgba(33, 187, 33, 0), rgba(19, 235, 134, 0)), linear-gradient(101deg, #78e4ff, #06dffc);
+font-family: 'Georama', sans-serif;
+font-weight:bold;
+
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #FDD380 inset;
+}
+
+.btn1:hover {
+  box-shadow: none;
+  color: white;
+}
+
+.scheduleList{
+  background-color: white;
+  padding : 2rem;
+  margin-top:1rem;
+}
+
+
+  .id-error { 
+    visibility:hidden;
+  }
 @media (max-width: 640px) {
   .section:first-of-type {
     min-height: 0;
@@ -30,6 +70,8 @@
   }
 }
 
+
+
 input[type="text"]:disabled{background-color:#f2f2f2;}
 
 .btmbox{
@@ -49,6 +91,15 @@ input[type="text"]:disabled{background-color:#f2f2f2;}
   #meetlink{
     font-size: 12px;
   }
+  .btn1 {
+    margin-bottom: 1rem;
+    font-size:20px
+    
+  }
+}
+
+.fade{
+  display:none
 }
 
 .hide{

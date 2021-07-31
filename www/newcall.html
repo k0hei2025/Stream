@@ -33,6 +33,9 @@
     />
     <meta property="og:image" content="/images/preview.png" />
     <meta property="og:url" content="https://mirotalk.herokuapp.com/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Georama:wght@300&display=swap" rel="stylesheet">
   </head>
   <body class="has-animations">
     <div class="body-wrap">
@@ -89,12 +92,13 @@
           </div>
         </section>
 
-        <section class="cta section center-content-mobile reveal-from-bottom">
+
+          <section class="cta section center-content-mobile reveal-from-bottom host">
           <div class="container">
             <div class="cta-inner yellowblock section-inner cta-split">
               <div class="cta-slogan">
                 <h3 class="m-0 textupper" >
-                  Start a meeting.<br> Here's a room name.
+                  Start Instant a meeting.<br> Here's a room name.
                 </h3>
               </div>
               <div class="cta-action">
@@ -104,21 +108,58 @@
                   >
                   <div class="form-group-desktop">
                     <input
-                      class="form-input"
+                      class="form-input inp"
                       type="text"
                       id="roomName"
                       value="PurpleSquid"
-                      disabled
-                    />
+                      
+                    /><button class="btn1" id='bt'>copy </button>
                     <button
                       class="button button-primary pulse"
                       style="background: #000;"
                       onclick="{window.location.href = '/join/' + document.getElementById('roomName').value}"
                     >
-                      Join to room
+                      Host a meeting
                     </button>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta section center-content-mobile reveal-from-bottom">
+          <div class="container">
+            <div class="cta-inner yellowblock section-inner cta-split">
+              <div class="cta-slogan">
+                <b class="id-error" id='errId'>Wrong Id</b>
+                <h3 class="m-0 textupper" >
+                  Join a meeting.<br> 
+                </h3>
+              </div>
+              <div class="cta-action">
+                <div class="mb-24">
+                  <label class="form-label screen-reader" for="roomName"
+                    >mirotalk</label
+                  >
+                  <div class="form-group-desktop">
+                    <input
+                    type="text"
+                      class="form-input"
+                       id='checkerInput'
+                  
+                    />
+                    <button
+                      class="button button-primary pulse linkChecker"
+                      style="background: #000;"
+                     id='buttonChecker'
+                    >
+                      Join to room
+                    </button>
+                  </div>
+                  
+                </div>
+           
               </div>
             </div>
           </div>
@@ -133,6 +174,7 @@
                 </h3>
               </div>
               <div class="cta-action">
+                          <b id="err" class="check">please enter date and Time </b>
                 <div class="mb-24">
                   <label class="form-label screen-reader" for="roomName"
                     >mirotalk</label
@@ -158,20 +200,56 @@
                     <input type="time"
                     style="padding: 5px;"
                      autocomplete="off" id="time" placeholder="time" />
-                    <input type="submit"  onclick="myFunction()"
+                    <input type="submit"  
+                    id="mark" 
                     style="background: #000;
                     color: #fff;
+                    
                     padding: 5px;
                     padding-left: 10px;
                     padding-right: 10px;"
                      value="Create" />
                   </div>
-                  <div id="meetlink" class="hide"></div>
+                       
+                  <div id="meetlink" class="hide">
+                      
+                  </div>
+                  <button class="btn1 fade" id='collectedData'><b class=''> Copy ID</b> </button>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+         <section class="btmbox mt-3 cta section center-content-mobile reveal-from-bottom">
+          <div class="container">
+            <div class="cta-inner yellowblock section-inner cta-split">
+              <div class="cta-slogan">
+                <h3 class="m-0 textupper" >
+                Schedule Events<br>
+                </h3>
+                  <div id='scheduledList' class="scheduleList">
+                    
+                    <b  id='eventId' class='eventClass'></b>
+                 <img src="images/date.png" height="20px" width="20px" />
+                  <b id='dateAndTimeId' class='dateAndTime'></b>
+                  <p id='urlId' class='urlClass'>  </p>
+                  
+                  
+                  <button class='btn1' >copy </button>
+                  </div>
+                       
+                  <div id="meetlink" class="hide">
+                      
+                  </div>
+                  <button class="btn1 fade" id='collectedData'><b class=''> Copy ID</b> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
       </main>
 
       <footer class="site-footer center-content-mobile">
@@ -230,24 +308,23 @@
       </footer>
     </div>
 
-    <script>
+    <script>setText
       function setText() {
   // var s= document.getElementById('');
   // s.innerHTML = newvalue;
-  var meetidlink= 'https://tetherr-master.el.r.appspot.com/join/' + document.getElementById('roomName').value
-  console.log(meetidlink)
-  document.getElementById('meetlink').innerHTML=meetidlink;
+  //  document.getElementById('meetlink').innerHTML=meetidlink;
 
-}
+
+}   
+
+    
+
+
 
   window.onload=function() { // or window.addEventListener("load",function() {
   setText();
   }
 
-  function myFunction() {
-    console.log("hello")
-  document.getElementById("meetlink").classList.remove("hide");
-}
 
 
 // setText();

@@ -52,7 +52,7 @@ console.log(signupEmail.value , signupPassword.value )
 
 const resData = data.json();
 console.log(resData);
-
+  location.replace('/newcall')  
 
  
 console.log(signupEmail.value , signupPassword.value )
