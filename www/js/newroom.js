@@ -135,6 +135,33 @@ adjective = adjective.charAt(0).toUpperCase() + adjective.substring(1);
 document.getElementById("roomName").value = num + adjective + noun;
 let meetName = num+adjective+noun;
 
+
+
+const share = document.getElementById('shareRoomBtn')
+
+
+   share.addEventListener('click', event => {
+     console.log('sharing process')
+  if (navigator.share) {
+    navigator.share({
+      title: `Meeting about ${document.getElementById("descrip").value}` ,
+      text:` ID : ${document.getElementById("roomName").value} Date : ${new Date().getDate} Time : ${new Date().getTime} `,
+      url: '/join/'+document.getElementById("roomName").value
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+}); 
+
+
+
+
+
+
+
 const buttonChecker = document.getElementById("buttonChecker")
 const checkInput = document.getElementById('checkerInput')
 const idErr = document.getElementById('errId')
@@ -164,7 +191,7 @@ btn.onclick = ()=>{
 // })
 
 
-const addToDataHandler= async(meetingId , date , time , url)=>{
+const addToDataHandler= async(meetingId , date , time , url )=>{
      
 
    
@@ -195,13 +222,11 @@ const addToDataHandler= async(meetingId , date , time , url)=>{
 }
 
 
+
+
+
 const listDataHandler= async ()=>{
    
-  let scheduleListContainer = document.querySelector('.scheduleList');
-  let eventId = document.getElementById('eventId');
-  let date = document.getElementById('dateAndTimeId')
-  let url = document.getElementById('urlId');
-
 
 
   const data = await fetch(`https://stream-66085-default-rtdb.firebaseio.com/scheduled.json`);
@@ -223,12 +248,90 @@ const listDataHandler= async ()=>{
   console.log(container)
    
    container.map((i)=>{
-     scheduleListContainer.id = i.id
-     eventId.innerHTML = i.meetId
-     date.innerHTML = i.dateAndTime
-     url.innerHTML = i.url 
+  
+   let cardData = document.createElement("div")
+    let eventIDB = document.createElement("b")
+    let dateAndTimeB = document.createElement("b")
+     let urlP = document.createElement("p")
+     let button = document.createElement("button")
+      let button1 = document.createElement("button")
+        let button2 = document.createElement("button")
+        
+        button.style.color = "white"
+        button.style.backgroundColor = 'black'
+        button1.style.backgroundColor ="blue"
+        button2.style.backgroundColor = "lightgreen"
+
+      let buttonContent = document.createTextNode("Copy")
+      let button1Content = document.createTextNode("Share")
+      let button2Content = document.createTextNode("Start")
+     
+      button.appendChild(buttonContent)
+       button1.appendChild(button1Content)
+       button2.appendChild(button2Content)
+       
+button2.onclick = ()=>{
+   window.location.href = i.url
+}
+
+
+       button1.onclick =()=>{
+         
+     console.log('sharing process')
+  if (navigator.share) {
+    navigator.share({
+      title: `Meeting` ,
+      text:` ID : ${i.meetId}  ${i.dateAndTime} `,
+      url: i.url
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+
+
+       }
+
+     cardData.style.backgroundColor="white"
+     cardData.style.padding='1rem'
+     cardData.style.borderRadius=".5rem"
+     cardData.style.margin=".5rem"
+
+     cardData.id = i.id;
+     let eventIdContent =  document.createTextNode("ID :"+ i.meetId)
+     let dateAndTimeContent = document.createTextNode(i.dateAndTime)
+     let urlContent = document.createTextNode(i.url)
+
+
+     button.onclick = ()=>{
+  eventIDB.style.userSelect = 'all';
+  dateAndTimeB.style.userSelect = 'all';
+  urlP.style.userSelect = 'all';
+  document.execCommand("copy")
+}
+
+
+    
+     eventIDB.appendChild(eventIdContent)
+     dateAndTimeB.appendChild(dateAndTimeContent)
+     urlP.appendChild(urlContent)
+
+  cardData.appendChild(eventIDB)  
+  cardData.appendChild(dateAndTimeB)
+  cardData.appendChild(urlP)
+  cardData.appendChild(button)
+  cardData.appendChild(button1)
+  cardData.appendChild(button2)
+  
+
+   document.getElementById("scheduledList").appendChild(cardData)
    })
 
+
+
+       
 
 }
 
@@ -273,7 +376,8 @@ var meetidlink= 'https://tetherr-master.el.r.appspot.com/join/' + num1+adjective
      document.getElementById('err').style.visibility = "hidden";
     
      addToDataHandler(meetId , date.value , time.value , meetidlink)
-
+       
+     shareRoomHandler( meetId , date.value , time.value , meetidlink );
    
     console.log("hello")
 
@@ -304,16 +408,10 @@ var meetidlink= 'https://tetherr-master.el.r.appspot.com/join/' + num1+adjective
    
      
  document.execCommand('Copy');
-
-
-
-
-
- 
-
   
 }
 }
+
 
 
 

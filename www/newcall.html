@@ -114,17 +114,30 @@
                       value="PurpleSquid"
                       
                     /><button class="btn1" id='bt'>copy </button>
+                    <button class="btn1" id='shareRoomBtn'>Share </button> <br />
+
+
                     <button
                       class="button button-primary pulse"
                       style="background: #000;"
                       onclick="{window.location.href = '/join/' + document.getElementById('roomName').value}"
                     >
                       Host a meeting
-                    </button>
+                    </button> 
+                        
                   </div>
+                     <input
+                      class=" its"
+                      type="text"
+                      id="descrip"
+                      placeholder="description"
+                    />
+  
                 </div>
+                     
               </div>
             </div>
+  
           </div>
         </section>
 
@@ -228,15 +241,9 @@
                 <h3 class="m-0 textupper" >
                 Schedule Events<br>
                 </h3>
-                  <div id='scheduledList' class="scheduleList">
+                  <div id='scheduledList' >
                     
-                    <b  id='eventId' class='eventClass'></b>
-                 <img src="images/date.png" height="20px" width="20px" />
-                  <b id='dateAndTimeId' class='dateAndTime'></b>
-                  <p id='urlId' class='urlClass'>  </p>
                   
-                  
-                  <button class='btn1' >copy </button>
                   </div>
                        
                   <div id="meetlink" class="hide">

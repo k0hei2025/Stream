@@ -104,7 +104,7 @@ var myHandBtn;
 var whiteboardBtn;
 var fileShareBtn;
 var mySettingsBtn;
-var aboutBtn;
+//var aboutBtn;
 var leaveRoomBtn;
 // chat room elements
 var msgerDraggable;
@@ -205,7 +205,7 @@ function getHtmlElementsById() {
   fileShareBtn = getId("fileShareBtn");
   myHandBtn = getId("myHandBtn");
   mySettingsBtn = getId("mySettingsBtn");
-  aboutBtn = getId("aboutBtn");
+ // aboutBtn = getId("aboutBtn");
   leaveRoomBtn = getId("leaveRoomBtn");
   // chat Room elements
   msgerDraggable = getId("msgerDraggable");
@@ -317,10 +317,7 @@ function setButtonsTitle() {
     content: "Show settings",
     placement: "right-start",
   });
-  tippy(aboutBtn, {
-    content: "Show about",
-    placement: "right-start",
-  });
+
   tippy(leaveRoomBtn, {
     content: "Leave this room",
     placement: "right-start",
@@ -1472,9 +1469,9 @@ function handleVideoPlayerFs(videoId, videoFullScreenBtnId) {
     handleFSVideo();
   });
   // on video click go on FS
-  videoPlayer.addEventListener("click", (e) => {
-    handleFSVideo();
-  });
+  // videoPlayer.addEventListener("click", (e) => {
+  //   handleFSVideo();
+  // });
 
   function handleFSVideo() {
     // if Controls enabled, or document on FS do nothing
@@ -1574,7 +1571,7 @@ function manageLeftButtons() {
   setMyWhiteboardBtn();
   setMyFileShareBtn();
   setMySettingsBtn();
-  setAboutBtn();
+  //setAboutBtn();
   setLeaveRoomBtn();
   showLeftButtonsAndMenu();
 }
@@ -1613,13 +1610,17 @@ function setVideoBtn() {
 function setSwapCameraBtn() {
   navigator.mediaDevices.enumerateDevices().then((devices) => {
     const videoInput = devices.filter((device) => device.kind === "videoinput");
-    if (videoInput.length > 1 && isMobileDevice) {
+    console.log(devices)
+    console.log(isMobileDevice)
+    if (videoInput.length > 0 && isMobileDevice) {
       // swap camera front - rear button click event for mobile
       swapCameraBtn.addEventListener("click", (e) => {
         swapCamera();
+        console.log('if conditionrun')
       });
     } else {
-      swapCameraBtn.style.display = "none";
+      console.log("else condition also run")
+      swapCameraBtn.style.display = "none"
     }
   });
 }
@@ -1911,11 +1912,11 @@ function setMySettingsBtn() {
 /**
  * About button click event
  */
-function setAboutBtn() {
-  aboutBtn.addEventListener("click", (e) => {
-    getAbout();
-  });
-}
+// function setAboutBtn() {
+//   aboutBtn.addEventListener("click", (e) => {
+//     getAbout();
+//   });
+// }
 
 /**
  * Leave room button click event

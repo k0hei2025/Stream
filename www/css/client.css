@@ -55,22 +55,9 @@
   --btns-hover-scale: scale(1.1);
 
   /* neon theme default */
-  --body-bg: black;
-  --msger-bg: black;
-  --msger-private-bg: black;
-  --left-msg-bg: #da05f3;
-  --private-msg-bg: #f77070;
-  --right-msg-bg: #579ffb;
-  --box-shadow: 3px 3px 6px #0500ff, -3px -3px 6px #da05f3;
-  --btn-bg: white;
-  --btn-color: black;
-  --btn-opc: 1;
-  --btns-left: 20px;
-  --wb-btn-color: black;
-  --wb-bg: white;
-  --my-settings-label-color: limegreen;
 
-  /* dark theme
+
+   /* dark theme
   --body-bg: #16171b;
   --msger-bg: #16171b;
   --msger-private-bg: black;
@@ -84,10 +71,10 @@
   --btns-left: 20px;
   --wb-btn-color: white;
   --wb-bg: black;
-  --my-settings-label-color: limegreen;
-  */
+  --my-settings-label-color: limegreen; */
+  
 
-  /* forest theme
+ 
   --body-bg: black;
   --msger-bg: black;
   --msger-private-bg: black;
@@ -102,7 +89,7 @@
   --wb-btn-color: black;
   --wb-bg: white;
   --my-settings-label-color: limegreen;
-  */
+  
 
   /* sky theme
   --body-bg: black;
@@ -326,8 +313,8 @@ body {
   transform: translate(0%, -50%);
   border-radius: 20px;
   background: transparent;
-  box-shadow: var(--box-shadow);
-  padding: 15px;
+
+  padding: 12px;
   flex-direction: column;
   justify-content: space-around;
   grid-gap: 0.3rem;
@@ -342,6 +329,59 @@ body {
   -moz-animation-duration: 1s;
   animation-duration: 1s;
   overflow: hidden;
+}
+
+@media(min-width: 768px){
+#leftButtons {
+    top: 95%;
+    left: 0;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: row;
+    
+
+}
+#shareRoomBtn {
+
+  margin-right: 1rem;
+}
+#audioBtn{
+  margin-right: 1rem;
+}
+#videoBtn {
+   margin-right: 1rem;
+}
+#swapCameraBtn{
+  margin-right: 1rem;
+}
+#screenShareBtn{
+  margin-right: 1rem;
+}
+#recordStreamBtn{
+  margin-right: 1rem;
+}
+#fullScreenBtn{
+  margin-right: 1rem;
+}
+
+#chatRoomBtn {
+ margin-right: 1rem
+}
+#myHandBtn {
+  margin-right: 1rem;
+}
+
+#whiteboardBtn{
+  
+  margin-right: 1rem;
+}
+#fileShareBtn{
+  margin-right: 1rem
+}
+#mySettingsBtn{
+  margin-right: 1rem;
+}
 }
 
 #leftButtons button {
