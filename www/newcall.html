@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -38,9 +41,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300&display=swap" rel="stylesheet">
   </head>
   <body class="has-animations">
-    <div class="body-wrap">
+
+
+  
+       <!-- <div class="popupData">
+  
+        <div class="inputs">
+
+                     <input type="date" 
+                    style="padding: 5px;"
+                    autocomplete="off" id="date" placeholder="date" /> <br />
+                    <input type="time"
+                    style="padding: 5px;"
+                     autocomplete="off" id="time" placeholder="time" /> 
+  
+        </div>
+
+                    </div>  -->
+
+    <div class="body-wrap overlay" >
+
+
+
+
       <header class="site-header reveal-from-top">
+
+ 
         <div class="container">
+
+
+   
+
           <div class="site-header-inner">
             <div class="brand">
               <h3 class="m-0">
@@ -55,6 +86,28 @@
         </div>
       </header>
       <main class="site-content">
+
+               <div id='popup' class="popupData displayPopup">
+  
+        <div class="inputs">
+            
+          <h3 id='popError' class="popupError">Please fill all Fields Correctly</h3> 
+
+          <h2 class="popupHeading"> Schedule a meeting</h2>
+
+                     <input type="date" 
+                    style="padding: 5px;"
+                    autocomplete="off" id="date" placeholder="date" /> 
+                    <input type="time"
+                    style="padding: 5px;"
+                     autocomplete="off" id="time" placeholder="time" /> 
+                     <input type="text" id='scheduleDesription' placeholder="description" /> 
+                  <button id='mark'>schedule</button>
+        </div>
+
+                    </div> 
+
+
         <section class="hero section illustration-section-01">
           <div class="container">
             <div class="hero-inner section-inner">
@@ -179,6 +232,9 @@
         </section>
 
         <section class="btmbox mt-3 cta section center-content-mobile reveal-from-bottom">
+
+          
+
           <div class="container">
             <div class="cta-inner yellowblock section-inner cta-split">
               <div class="cta-slogan">
@@ -187,8 +243,10 @@
                 </h3>
               </div>
               <div class="cta-action">
-                          <b id="err" class="check">please enter date and Time </b>
+              
                 <div class="mb-24">
+
+                   
                   <label class="form-label screen-reader" for="roomName"
                     >mirotalk</label
                   >
@@ -207,16 +265,16 @@
                     >
                       Join to room
                     </button> -->
-                    <input type="date" 
-                    style="padding: 5px;"
-                    autocomplete="off" id="date" placeholder="date" />
-                    <input type="time"
-                    style="padding: 5px;"
-                     autocomplete="off" id="time" placeholder="time" />
+                 
+
+
+
                     <input type="submit"  
-                    id="mark" 
+                    id="createbtn" 
                     style="background: #000;
                     color: #fff;
+                 
+
                     
                     padding: 5px;
                     padding-left: 10px;

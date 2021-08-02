@@ -1639,7 +1639,7 @@ function setScreenShareBtn() {
       toggleScreenSharing();
     });
   } else {
-    screenShareBtn.style.display = "none";
+     
   }
 }
 

@@ -191,7 +191,7 @@ btn.onclick = ()=>{
 // })
 
 
-const addToDataHandler= async(meetingId , date , time , url )=>{
+const addToDataHandler= async(meetingId , date , time , url , description )=>{
      
 
    
@@ -202,7 +202,8 @@ const addToDataHandler= async(meetingId , date , time , url )=>{
 
     meetId : meetingId,
     timePeriod : ` Date: ${date} Time ${time}`,
-    link : url
+    link : url,
+    description : description
 
   },
        returnSecureToken : true
@@ -221,6 +222,12 @@ const addToDataHandler= async(meetingId , date , time , url )=>{
 
 }
 
+let createBtn = document.getElementById("createbtn")
+let popup = document.getElementById("popup")
+
+createBtn.onclick = ()=>{
+    popup.classList.remove("displayPopup");
+}
 
 
 
@@ -241,7 +248,8 @@ const listDataHandler= async ()=>{
       id : i,
       meetId  : resData[i].data.meetId,
       dateAndTime  : resData[i].data.timePeriod,
-      url : resData[i].data.link
+      url : resData[i].data.link,
+      description : resData[i].data.description,
     })
   }
   console.log(resData)
@@ -252,7 +260,8 @@ const listDataHandler= async ()=>{
    let cardData = document.createElement("div")
     let eventIDB = document.createElement("b")
     let dateAndTimeB = document.createElement("b")
-     let urlP = document.createElement("p")
+     let description = document.createElement("p")
+
      let button = document.createElement("button")
       let button1 = document.createElement("button")
         let button2 = document.createElement("button")
@@ -280,8 +289,9 @@ button2.onclick = ()=>{
      console.log('sharing process')
   if (navigator.share) {
     navigator.share({
-      title: `Meeting` ,
+      title: i.description ,
       text:` ID : ${i.meetId}  ${i.dateAndTime} `,
+
       url: i.url
     }).then(() => {
       console.log('Thanks for sharing!');
@@ -302,13 +312,13 @@ button2.onclick = ()=>{
      cardData.id = i.id;
      let eventIdContent =  document.createTextNode("ID :"+ i.meetId)
      let dateAndTimeContent = document.createTextNode(i.dateAndTime)
-     let urlContent = document.createTextNode(i.url)
+     let descriptionContent = document.createTextNode(i.description)
 
 
      button.onclick = ()=>{
   eventIDB.style.userSelect = 'all';
   dateAndTimeB.style.userSelect = 'all';
-  urlP.style.userSelect = 'all';
+  description.style.userSelect = 'all';
   document.execCommand("copy")
 }
 
@@ -316,11 +326,11 @@ button2.onclick = ()=>{
     
      eventIDB.appendChild(eventIdContent)
      dateAndTimeB.appendChild(dateAndTimeContent)
-     urlP.appendChild(urlContent)
+     description.appendChild(descriptionContent)
 
   cardData.appendChild(eventIDB)  
   cardData.appendChild(dateAndTimeB)
-  cardData.appendChild(urlP)
+  cardData.appendChild(description)
   cardData.appendChild(button)
   cardData.appendChild(button1)
   cardData.appendChild(button2)
@@ -339,10 +349,12 @@ button2.onclick = ()=>{
 
 
 
-const date = document.getElementById('date');
-const time = document.getElementById('time');
+
 const submit = document.getElementById('mark')
  const insert =  document.getElementById('meetlink')
+let date = document.getElementById('date');
+let time = document.getElementById('time');
+let description = document.getElementById('scheduleDesription')
 
 
          
@@ -355,29 +367,34 @@ submit.onclick = ()=>{
 
 
 
+
  var adjective1 = adjectives[Math.floor(Math.random() * adjectives.length)];
 var noun1 = nouns[Math.floor(Math.random() * nouns.length)];
 var num1 = getRandomNumber(5);
 noun1 = noun1.charAt(0).toUpperCase() + noun1.substring(1);
 adjective1 = adjective1.charAt(0).toUpperCase() + adjective1.substring(1);
-var meetidlink= 'https://tetherr-master.el.r.appspot.com/join/' + num1+adjective1+noun1
+var meetidlink= 'https://stream-321403.el.r.appspot.com/join/' + num1+adjective1+noun1
  let meetId = num1+adjective1+noun;
 
  let packet = [];
 
 
 
-    if ( date === '' && time === ''){
-       document.getElementById("err").classList.remove("check"); 
-      document.getElementById("err").style = "red";
+    if ( date.value === '' || time.value === '' || description.value === '' ){
+
+      document.getElementById('popError').classList.remove('popupError');
+      document.getElementById('popError').style.color = 'red';
+
+      console.log('if called')
 
     }
     else {
-     document.getElementById('err').style.visibility = "hidden";
+            console.log(date.value , time.value , description.value)
+     document.getElementById('popup').style.display = "none";
     
-     addToDataHandler(meetId , date.value , time.value , meetidlink)
+     addToDataHandler(meetId , date.value , time.value , meetidlink , description.value)
        
-     shareRoomHandler( meetId , date.value , time.value , meetidlink );
+     shareRoomHandler( meetId , date.value , time.value , meetidlink , description.value);
    
     console.log("hello")
 
@@ -408,6 +425,7 @@ var meetidlink= 'https://tetherr-master.el.r.appspot.com/join/' + num1+adjective
    
      
  document.execCommand('Copy');
+console.log('else called')
   
 }
 }

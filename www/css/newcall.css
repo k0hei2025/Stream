@@ -4,6 +4,99 @@
     visibility:hidden;
   }
 
+
+  .popupData { 
+  
+    z-index: 10;
+    position: absolute;
+    background-color:rgba(0,0,0,0.8);
+    height: 100%;
+    width: 100vw;
+    text-align: center;
+    
+    
+  }
+
+  .displayPopup{
+    display: none;
+  }
+   
+
+
+.popupHeading{
+  color: black;
+}
+
+#date  {
+   font-family: 'Roboto Mono', monospace;  
+   font-weight: bold;
+   color: grey;
+  border: gray ;
+  border-style: solid;
+  border-radius: .5rem;
+
+}
+ 
+#time{
+  font-size:1.7rem;
+  border: gray ;
+  border-style: solid;
+  border-radius: .5rem;
+   font-family: 'Roboto Mono', monospace;  
+color: grey;
+
+}
+
+#scheduleDesription{
+       font-family: 'Roboto Mono', monospace;  
+   font-weight: bold;
+   color: grey;
+  border: gray ;
+  border-style: solid;
+  border-radius: .5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.popupError {
+  display: none;
+}
+
+#mark{
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+  background-color: rgb(32, 32, 32);
+   color: white;
+   border-radius: .2rem;
+   margin-top: 1rem;
+   padding-left: 1rem;
+   padding-right: 1rem;
+}
+
+#scheduleButton:hover{
+  font-weight: bold;
+  background-color:grey;
+  color: black;
+}
+
+  .inputs { 
+    
+    background-color:white;
+    padding:1rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+   flex-direction :column;
+   justify-content: center;
+   align-items: center;
+   border-radius: .5rem;
+
+  }
+
+
+
   .btn1 {
     margin-right: .5rem;
   border-radius: .5rem;

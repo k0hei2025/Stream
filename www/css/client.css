@@ -339,6 +339,7 @@ body {
     width: 100vw;
     justify-content: center;
     flex-direction: row;
+    transform: scale(1.3);
     
 
 }
