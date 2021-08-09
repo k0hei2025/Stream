@@ -156,11 +156,6 @@ const share = document.getElementById('shareRoomBtn')
   }
 }); 
 
-const landingButtonCheck = document.getElementById("landingButtonCheck");
-
-landingButtonCheck.addEventListener("click",()=>{
-  console.log('clickeed')
-})
 
 
 
@@ -172,6 +167,7 @@ const checkInput = document.getElementById('checkerInput')
 const idErr = document.getElementById('errId')
 
 buttonChecker.addEventListener("click",()=>{
+  console.log('click')
   console.log(meetName);
   console.log(checkInput.value)
   if (checkInput.value === meetName ){
@@ -183,18 +179,6 @@ buttonChecker.addEventListener("click",()=>{
   console.log('error')
 })
 
-buttonChecker1.addEventListener("click",()=>{
-  console.log('clicked')
-  console.log(meetName);
-  console.log(checkInput.value)
-  if (checkInput.value === meetName ){
-    window.location.href = '/join/' + document.getElementById('roomName').value
-    console.log('success')
-  }
-  idErr.classList.remove('id-error');
-  idErr.style.color = 'red'
-  console.log('error')
-})
 
 const copyInput = document.querySelector('.inp')
 const btn = document.getElementById('bt');
