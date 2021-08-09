@@ -156,17 +156,35 @@ const share = document.getElementById('shareRoomBtn')
   }
 }); 
 
+const landingButtonCheck = document.getElementById("landingButtonCheck");
 
+landingButtonCheck.addEventListener("click",()=>{
+  console.log('clickeed')
+})
 
 
 
 
 
 const buttonChecker = document.getElementById("buttonChecker")
+
 const checkInput = document.getElementById('checkerInput')
 const idErr = document.getElementById('errId')
 
 buttonChecker.addEventListener("click",()=>{
+  console.log(meetName);
+  console.log(checkInput.value)
+  if (checkInput.value === meetName ){
+    window.location.href = '/join/' + document.getElementById('roomName').value
+    console.log('success')
+  }
+  idErr.classList.remove('id-error');
+  idErr.style.color = 'red'
+  console.log('error')
+})
+
+buttonChecker1.addEventListener("click",()=>{
+  console.log('clicked')
   console.log(meetName);
   console.log(checkInput.value)
   if (checkInput.value === meetName ){
@@ -236,7 +254,7 @@ const listDataHandler= async ()=>{
    
 
 
-  const data = await fetch(`https://stream-66085-default-rtdb.firebaseio.com/scheduled.json`);
+  const data = await fetch(`https://stream-66085-default-rtdb.firebaseio.com/scheduled.json?auth=`);
   
 
 

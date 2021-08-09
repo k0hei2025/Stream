@@ -15,6 +15,8 @@ const signinPassword = document.querySelector('.signin-password')
 const signinButton = document.getElementById('signin-button')
 
 
+
+
 signUpButton.addEventListener('click', () =>
 container.classList.add('right-panel-active'));
 
@@ -51,8 +53,15 @@ console.log(signupEmail.value , signupPassword.value )
 );
 
 const resData = data.json();
+
+
+
 console.log(resData);
-  location.replace('/newcall')  
+
+   tokenId = resData.localId;
+   console.log(tokenId);
+
+ location.replace('/newcall')  
 
  
 console.log(signupEmail.value , signupPassword.value )
@@ -92,7 +101,10 @@ signinButton.addEventListener('click',async()=>{
    console.log(resData.idToken);
  
   if (resData.idToken){
-     location.replace('/newcall')  
+    console.log(resData)
+    console.log(resData.localId)
+
+    location.replace('/newcall')  
   }
 
     if (resData.error  ){
@@ -107,3 +119,4 @@ signinButton.addEventListener('click',async()=>{
  
 
 })
+

@@ -8,6 +8,7 @@ html {
 
 body {
   margin: 0;
+ 
 }
 
 .host {
@@ -909,11 +910,11 @@ strong {
 
 .button-primary {
   color: #f9faff;
-  background-color: #376df9;
+  background-color: #000;
 }
 
 .button-primary:hover {
-  background-color: #4678f9;
+  background-color: #1b1c21;
 }
 
 .button-primary.is-loading::after {
@@ -2394,8 +2395,7 @@ textarea.form-input {
 }
 
 .features-tiles .tiles-wrap {
-  margin-right: -16px;
-  margin-left: -16px;
+ 
   margin-top: -16px;
 }
 
@@ -2409,7 +2409,7 @@ textarea.form-input {
 
 .features-tiles .tiles-wrap.push-left::after {
   flex-basis: 360px;
-  max-width: 360px;
+  max-width: 510px;
   padding-left: 16px;
   padding-right: 16px;
 }
@@ -2427,7 +2427,7 @@ textarea.form-input {
   padding-right: 0;
 }
 
-@media (min-width: 641px) {
+@media (max-width: 641px) {
   .features-tiles .tiles-wrap {
     margin-right: -32px;
     margin-left: -32px;
@@ -2847,9 +2847,14 @@ ul.pricing-item-features-list li.is-checked::after {
 
 .cta-inner {
   padding-left: 16px;
-  padding-right: 16px;
+  padding-right: 20px;
   background-color: #376df9;
-  background: #FDD380;
+  background: #0F52BA;
+}
+
+.btnJoin{
+  background-color: black;
+  color: white;
 }
 
 @media (min-width: 641px) {
@@ -2858,6 +2863,7 @@ ul.pricing-item-features-list li.is-checked::after {
   }
 
   .cta-inner {
+     background-color: #376df9;
     padding-left: 48px;
     padding-right: 48px;
   }
@@ -3052,8 +3058,8 @@ img.has-shadow {
 .center-content img,
 .center-content svg,
 .center-content video {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .center-content .button-group {
@@ -3080,6 +3086,17 @@ img.has-shadow {
 
 .m-0 {
   margin: 0;
+  color: #C9CBFF
+}
+
+
+.create{
+ background-color: black;
+ color: white;
+padding-left:3.5rem;
+padding:.5rem;
+padding-right:3.5rem;
+font-weight: bold;
 }
 
 .mt-0 {
@@ -3483,7 +3500,7 @@ img.has-shadow {
 
 /*Pulse Button*/
 .pulse {
-  box-shadow: 0 0 0 rgba(120, 120, 120, 0.4);
+  box-shadow: 0 0 0 black;
   animation: pulse 4s infinite;
 }
 .pulse:hover {
@@ -3503,7 +3520,7 @@ img.has-shadow {
 }
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 rgba(120, 120, 120, 0.4);
+    -moz-box-shadow: 0 0 0 0 rgba(120, 120, 120, 0);
     box-shadow: 0 0 0 0 rgba(120, 120, 120, 0.4);
   }
   70% {

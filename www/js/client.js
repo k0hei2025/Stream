@@ -6,6 +6,9 @@
  ██████ ███████ ██ ███████ ██   ████    ██    
 */
 
+
+
+
 "use strict"; // https://www.w3schools.com/js/js_strict.asp
 
 const welcomeImg = "../images/illustration-section-01.svg";
@@ -1923,7 +1926,11 @@ function setMySettingsBtn() {
  */
 function setLeaveRoomBtn() {
   leaveRoomBtn.addEventListener("click", (e) => {
+
+window.location.href = '/'
+  
     leaveRoom();
+  
   });
 }
 
