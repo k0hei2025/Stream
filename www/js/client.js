@@ -526,8 +526,7 @@ function initPeer() {
       allowOutsideClick: false,
       background: swalBackground,
       position: "center",
-      imageAlt: "mirotalk-name",
-      imageUrl: welcomeImg,
+   
       title: "Enter your name",
       input: "text",
       html: `<br>

@@ -4,6 +4,11 @@
     visibility:hidden;
   }
 
+  .cross{
+  margin-left: 100%; 
+  background-color:rgb(199, 62, 20)
+ 
+  }
 
   .popupData { 
   

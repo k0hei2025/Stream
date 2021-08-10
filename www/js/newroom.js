@@ -349,8 +349,15 @@ button2.onclick = ()=>{
 
 
 
+const crossBtn = document.getElementById('crossbtn')
 
+crossBtn.addEventListener('click',() =>{
+     document.getElementById('popup').style.display = "none";
+  
+})
 
+const butonCopySchedule = document.getElementById('btS');
+const buttonShare = document.getElementById('shareRoomBtnS')
 
 const submit = document.getElementById('mark')
  const insert =  document.getElementById('meetlink')
@@ -361,6 +368,8 @@ let description = document.getElementById('scheduleDesription')
 
          
   listDataHandler()
+  
+
 
 
 submit.onclick = ()=>{
@@ -392,10 +401,46 @@ var meetidlink= 'https://stream-321403.el.r.appspot.com/join/' + num1+adjective1
     }
     else {
             console.log(date.value , time.value , description.value)
-     document.getElementById('popup').style.display = "none";
+
+            buttonShare.addEventListener('click', ()=>{
+
+    
+     console.log('sharing process' , meetId , meetidlink , date.value , time.value , description.value)
+  if (navigator.share) {
+    navigator.share({
+      title: `Meeting about ${description.value}` ,
+      text:` ID : ${meetId} Date : ${date.value} Time : ${time.value} `,
+      url: meetidlink
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+}); 
+
+
+   butonCopySchedule.onclick = ()=>{
+   date.select();
+     document.execCommand("copy")
+   time.select();
+     document.execCommand("copy")
+   description.select();
+  document.execCommand("copy")
+
+  console.log('copied')
+}
+
+
+            
+        //  for icon
+
+
     
      addToDataHandler(meetId , date.value , time.value , meetidlink , description.value)
        
+     
      shareRoomHandler( meetId , date.value , time.value , meetidlink , description.value);
    
     console.log("hello")
