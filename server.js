@@ -32,7 +32,7 @@ const io = new Server().listen(server);
 const ngrok = require("ngrok");
 
 var API_KEY_SECRET = process.env.API_KEY_SECRET || "mirotalk_default_secret";
-var PORT = process.env.PORT || 3000; // signalingServerPort
+var PORT = process.env.PORT || 4000; // signalingServerPort
 var localHost = "http://localhost:" + PORT; // http
 var channels = {}; // collect channels
 var sockets = {}; // collect sockets
